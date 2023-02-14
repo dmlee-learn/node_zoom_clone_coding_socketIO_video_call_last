@@ -1,0 +1,61 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    title Noom
+    link(rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css")
+    style.
+      :root {
+        --border-use-radius: 20px;
+        --chat-max-width:800px;
+      }
+      .hidden {
+        display:none;
+      }
+
+      
+      .receive {
+        border: 1px solid var(--color-bg-secondary);
+        border-radius: var(--border-use-radius);
+        margin-bottom: 1rem;
+        padding: 0.4rem 0.8rem;
+        word-wrap: break-word;
+        max-width: var(--chat-max-width);
+      }
+      .send {
+        background: yellow;
+        border: 1px solid var(--color-bg-secondary);
+        border-radius: var(--border-use-radius);
+        margin-bottom: 1rem;
+        padding: 0.4rem 0.8rem;
+        text-align: right;
+        word-wrap: break-word;
+        max-width: var(--chat-max-width);
+      }
+      .base_panel {
+        max-width: var(--width-card-wide);
+        min-width: var(--width-card);
+      }
+      
+  body
+    header
+      h1 Noom
+    main
+      div#welcome
+        form
+          input(placeholder="Room name", require, type='text')
+          button Enter room
+        h3 Open rooms:
+        ul#room_list
+      div#room.hidden
+        h3
+        ul
+        form#nick
+          input(placeholder="Nick name", require, type='text')
+          button save
+        form#msg
+          input(placeholder="Message", require, type='text')
+          button Send
+    script(src="/socket.io/socket.io.js")
+    script(src="/public/js/app.js")
