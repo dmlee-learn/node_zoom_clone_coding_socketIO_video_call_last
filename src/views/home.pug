@@ -44,18 +44,14 @@ html(lang="en")
     main
       div#welcome
         form
-          input(placeholder="Room name", require, type='text')
+          input(placeholder="Room name", required, type="text")
           button Enter room
-        h3 Open rooms:
-        ul#room_list
-      div#room.hidden
-        h3
-        ul
-        form#nick
-          input(placeholder="Nick name", require, type='text')
-          button save
-        form#msg
-          input(placeholder="Message", require, type='text')
-          button Send
+      div#call.hidden
+        div#myStream
+          video#myFace(autoplay, playsinline, width=400, height=400)
+          button#mute Mute
+          button#camera Turn Camera OFF
+          select#cameras
+        video#peerFace(autoplay, playsinline, width=400, height=400)
     script(src="/socket.io/socket.io.js")
     script(src="/public/js/app.js")
